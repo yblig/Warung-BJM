@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpeg" href="Logo BJM.png" sizes="100x100">
+   <script src="https://kit.fontawesome.com/173a2f5542.js" crossorigin="anonymous"></script>
+
+    <title>Warung BJM - Sate Karangasem & Kuliner Bali</title>
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #fcf8f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Variables untuk Warna */
+        :root {
+            --primary-red: #C62828;
+            --gold-bali: #FFB300;
+            --dark-brown: #4E342E;
+            --light-cream: #FFF8E1;
+        }
+
+        /* Header & Navbar */
+        header {
+            background-color: var(--dark-brown);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-bottom: 3px solid var(--gold-bali);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid var(--gold-bali);
+        }
+
+        .logo-text h1 {
+            color: var(--gold-bali);
+            font-size: 24px;
+        }
+
+        .logo-text p {
+            color: #fff;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(78, 52, 46, 0.8), rgba(198, 40, 40, 0.7)), url('WhatsApp Image 2026-06-29 at 22.38.27.jpeg') center/cover;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .hero h2 {
+            font-size: 42px;
+            color: var(--gold-bali);
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 600px;
+            margin-bottom: 25px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+        }
+
+        .btn-pesan {
+            background-color: var(--primary-red);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 25px;
+            border: 2px solid var(--gold-bali);
+            transition: 0.3s ease;
+        }
+
+        .btn-pesan:hover {
+            background-color: var(--gold-bali);
+            color: var(--dark-brown);
+        }
+
+        /* Menu Section */
+        .menu-section {
+            padding: 60px 5%;
+            text-align: center;
+        }
+
+        .section-title {
+            color: var(--primary-red);
+            font-size: 32px;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--gold-bali);
+            margin: 8px auto 0;
+        }
+
+        .menu-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .menu-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary-red);
+            transition: transform 0.3s;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            background-color: #f5e9dc;
+        }
+
+        .map-section {
+            padding: 60px 5% 20px;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .map-wrapper {
+            width: 100%;
+            max-width: 900px;
+            margin: 25px auto 20px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            border: 2px solid var(--gold-bali);
+        }
+
+        .map-wrapper iframe {
+            display: block;
+            width: 100%;
+            height: 420px;
+            border: 0;
+        }
+
+        .menu-info {
+            padding: 20px;
+        }
+
+        .menu-info h3 {
+            color: var(--dark-brown);
+            margin-bottom: 8px;
+            font-size: 20px;
+        }
+
+        .badge-spesial {
+            background-color: var(--gold-bali);
+            color: var(--dark-brown);
+            padding: 3px 10px;
+            font-size: 11px;
+            font-weight: bold;
+            border-radius: 10px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        /* Info Section / Flyer */
+        .flyer-section {
+            background-color: var(--light-cream);
+            padding: 50px 5%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .flyer-img {
+            max-width: 100%;
+            width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .flyer-text {
+            max-width: 500px;
+        }
+
+        .flyer-text h3 {
+            color: var(--primary-red);
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .social-section {
+            padding: 60px 5%;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .social-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .social-card {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-red), var(--gold-bali));
+            color: white;
+            font-size: 36px;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .social-card:hover {
+            transform: translateY(-5px) scale(1.05);
+        }
+
+        .coming-soon-box {
+            max-width: 600px;
+            margin: 25px auto 0;
+            padding: 30px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #fff7e6, #ffe0b2);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .coming-soon-box::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(255,255,255,0.45);
+            backdrop-filter: blur(8px);
+            z-index: 0;
+        }
+
+        .coming-soon-box h3,
+        .coming-soon-box p {
+            position: relative;
+            z-index: 1;
+        }
+
+        .coming-soon-box h3 {
+            color: var(--dark-brown);
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .coming-soon-box p {
+            color: #6d4c41;
+            font-size: 16px;
+        }
+
+        .blurred-content {
+            filter: blur(6px);
+            opacity: 0.7;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        /* Hubungi Kami / Footer */
+        footer {
+            background-color: var(--dark-brown);
+            color: white;
+            padding: 40px 5% 20px;
+            text-align: center;
+            border-top: 5px solid var(--primary-red);
+        }
+
+        .footer-content {
+            margin-bottom: 25px;
+        }
+
+        .wa-link {
+            color: var(--gold-bali);
+            font-size: 22px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .wa-link:hover {
+            text-decoration: underline;
+        }
+
+        .copyright {
+            font-size: 13px;
+            color: #b3a29f;
+            border-top: 1px solid #6d524e;
+            padding-top: 20px;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            .hero h2 { font-size: 32px; }
+            .hero p { font-size: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+
+    <!-- Header Navbar -->
+    <header>
+        <div class="logo-container">
+            <!-- Menampilkan file logo utama -->
+            <img src="Logo BJM.png" alt="Logo Warung BJM" class="logo-img">
+            <div class="logo-text">
+                <h1>WARUNG BJM</h1>
+                <p>BADUNG JAYA MESARI</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+        <h2>Sate Karangasem & Kuliner Bali Lezat</h2>
+        <p>Nikmati hidangan sate legendaris dengan bumbu otentik yang bikin ketagihan. Melayani pemesanan nasi bungkus dan nasi kotak!</p>
+        <a href="https://wa.me/6281947852999" target="_blank" class="btn-pesan">Pesan Lewat WhatsApp</a>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu-section">
+        <h2 class="section-title">Menu Utama Kami</h2>
+        
+        <div class="menu-container">
+            <div class="menu-card">
+                <img src="Sate.png" alt="Sate Karangasem" class="menu-img">
+                <div class="menu-info">
+                    <span class="badge-spesial">RECOMMENDED</span>
+                    <h3>Sate Karangasem</h3>
+                    <p>Sate bumbu khas yang meresap sempurna dengan daging pilihan empuk.</p>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <img src="NasiCampur.png" alt="Nasi Campur" class="menu-img">
+                <div class="menu-info">
+                    <h3>Nasi Campur</h3>
+                    <p>Kombinasi nasi hangat dengan berbagai lauk pauk khas Warung BJM.</p>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <img src="PaketLengkap.png" alt="Paket Lengkap" class="menu-img">
+                <div class="menu-info">
+                    <h3>Paket Lengkap</h3>
+                    <p>Pilihan pas buat kamu yang pengen ngerasain semua kelezatan sekaligus.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title" style="margin-top: 50px;">Lauk Pauk Tambahan</h2>
+        <div class="menu-container">
+            <div class="menu-card">
+                <img src="ParuSereLemo.png" alt="Paru Sere Lemo" class="menu-img">
+                <div class="menu-info"><h3>Paru Sere Lemo</h3></div>
+            </div>
+            <div class="menu-card">
+                <img src="TumBabi.png" alt="Tum Babi" class="menu-img">
+                <div class="menu-info"><h3>Tum Babi</h3></div>
+            </div>
+            <div class="menu-card">
+                <img src="PesanTlengis.png" alt="Pesan Tlengis" class="menu-img">
+                <div class="menu-info"><h3>Pesan Tlengis</h3></div>
+            </div>
+            <div class="menu-card">
+                <img src="KuahBalung.png" alt="Kuah Balung" class="menu-img">
+                <div class="menu-info"><h3>Kuah Balung</h3></div>
+            </div>
+            <div class="menu-card">
+                <img src="BabiKecap.png" alt="Babi Kecap" class="menu-img">
+                <div class="menu-info"><h3>Babi Kecap</h3></div>
+            </div>
+            <div class="menu-card">
+                <img src="BalahBabi.png" alt="Balah Babi" class="menu-img">
+                <div class="menu-info"><h3>Balah Babi</h3></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <h2 class="section-title">Lokasi Warung BJM</h2>
+        <p>Temukan kami di Badung Jaya Mesari dengan petunjuk arah yang lebih jelas.</p>
+        <div class="map-wrapper">
+            <iframe
+                src="https://www.google.com/maps?q=-8.6516335,115.1583344&z=15&output=embed"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+        <a href="https://maps.app.goo.gl/krfa1wDC2BTf5ESx9" target="_blank" class="btn-pesan">Buka di Google Maps</a>
+    </section>
+
+    <section class="social-section">
+        <h2 class="section-title">Ikuti Kami</h2>
+        <div class="social-grid">
+            <a href="https://www.tiktok.com/@warung.bjm?_r=1&_t=ZS-97fHkVfAfP2" target="_blank" class="social-card" aria-label="TikTok Warung BJM">
+                <i class="fa-brands fa-tiktok"></i>
+            </a>
+        </div>
+
+        <div class="coming-soon-box">
+            <div class="blurred-content">
+                <h3>Konten Viral Menanti</h3>
+                <p>Siap menampilkan momen kuliner, promo, dan aktivitas Warung BJM yang seru.</p>
+            </div>
+            <h3>Coming Soon</h3>
+            <p>Halaman konten ini sedang dipersiapkan.</p>
+        </div>
+    </section>
+
+    <!-- Flyer & Promo Section -->
+    <section class="flyer-section">
+        <!-- Menampilkan file brosur menu -->
+        <img src="Daftar menu.png" alt="Daftar Menu Warung BJM" class="flyer-img">
+        <div class="flyer-text">
+            <h3>Terima Pesanan Besar</h3>
+            <p>Mau mengadakan acara keluarga, rapat kantor, atau kumpul-kumpul? Warung BJM siap melayani pemesanan <strong>Nasi Bungkus</strong> dan <strong>Nasi Kotak</strong> dengan rasa kualitas premium.</p>
+            <p style="margin-top: 15px;">Hubungi kami segera untuk booking atau order minimal h-1 acara!</p>
+        </div>
+    </section>
+
+    <!-- Footer & Contact -->
+    <footer>
+        <div class="footer-content">
+            <h3>Warung Sate BJM (Badung Jaya Mesari)</h3>
+            <p>Pesan langsung dan nikmati kelezatannya sekarang juga via WhatsApp:</p>
+            <a href="https://wa.me/6281947852999" target="_blank" class="wa-link">📱 081947852999</a>
+        </div>
+        <div class="copyright">
+            &copy; 2026 Warung BJM - Badung Jaya Mesari. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
