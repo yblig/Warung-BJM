@@ -305,6 +305,87 @@
             font-size: 16px;
         }
 
+        .animated-background {
+            animation: heroZoom 24s ease-in-out infinite alternate;
+            transform-origin: center center;
+            will-change: transform;
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+            will-change: opacity, transform;
+        }
+
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero h2,
+        .hero p,
+        .btn-pesan,
+        .section-title,
+        .menu-card,
+        .map-wrapper,
+        .social-card,
+        .coming-soon-box,
+        .flyer-img,
+        .flyer-text,
+        footer {
+            will-change: transform, opacity;
+        }
+
+        .btn-pesan {
+            animation: pulseGlow 4s ease-in-out infinite;
+        }
+
+        .section-title::after {
+            animation: shimmerLine 3s ease-in-out infinite;
+        }
+
+        .menu-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-8px) scale(1.01);
+        }
+
+        .flyer-img {
+            animation: floatCard 8s ease-in-out infinite;
+        }
+
+        .coming-soon-box {
+            animation: glowPop 7s ease-in-out infinite;
+        }
+
+        @keyframes heroZoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.02); }
+        }
+
+        @keyframes shimmerLine {
+            0%, 100% { transform: scaleX(1); opacity: 0.75; }
+            50% { transform: scaleX(0.6); opacity: 1; }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 0px rgba(255, 179, 0, 0.35); }
+            50% { box-shadow: 0 0 18px rgba(255, 179, 0, 0.25); }
+        }
+
+        @keyframes floatCard {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        @keyframes glowPop {
+            0%, 100% { box-shadow: 0 10px 20px rgba(255, 179, 0, 0.15); }
+            50% { box-shadow: 0 12px 30px rgba(255, 179, 0, 0.25); }
+        }
+
         .blurred-content {
             filter: blur(6px);
             opacity: 0.7;
@@ -368,18 +449,18 @@
     </header>
 
     <!-- Hero Banner -->
-    <section class="hero">
+    <section class="hero animated-background">
         <h2>Sate Karangasem & Kuliner Bali Lezat</h2>
         <p>Nikmati hidangan sate legendaris dengan bumbu otentik yang bikin ketagihan. Melayani pemesanan nasi bungkus dan nasi kotak!</p>
         <a href="https://wa.me/6281947852999" target="_blank" class="btn-pesan">Pesan Lewat WhatsApp</a>
     </section>
 
     <!-- Menu Section -->
-    <section class="menu-section">
+    <section class="menu-section animate-on-scroll">
         <h2 class="section-title">Menu Utama Kami</h2>
         
         <div class="menu-container">
-            <div class="menu-card">
+            <div class="menu-card animate-on-scroll">
                 <img src="Sate.png" alt="Sate Karangasem" class="menu-img">
                 <div class="menu-info">
                     <span class="badge-spesial">RECOMMENDED</span>
@@ -388,7 +469,7 @@
                 </div>
             </div>
 
-            <div class="menu-card">
+            <div class="menu-card animate-on-scroll">
                 <img src="NasiCampur.png" alt="Nasi Campur" class="menu-img">
                 <div class="menu-info">
                     <h3>Nasi Campur</h3>
@@ -396,7 +477,7 @@
                 </div>
             </div>
 
-            <div class="menu-card">
+            <div class="menu-card animate-on-scroll">
                 <img src="PaketLengkap.png" alt="Paket Lengkap" class="menu-img">
                 <div class="menu-info">
                     <h3>Paket Lengkap</h3>
@@ -407,34 +488,34 @@
 
         <h2 class="section-title" style="margin-top: 50px;">Lauk Pauk Tambahan</h2>
         <div class="menu-container">
-            <div class="menu-card">
+            <div class="menu-card animate-on-scroll">
                 <img src="ParuSereLemo.png" alt="Paru Sere Lemo" class="menu-img">
                 <div class="menu-info"><h3>Paru Sere Lemo</h3></div>
             </div>
-            <div class="menu-card">
+            <div class="menu-card animate-on-scroll">
                 <img src="TumBabi.png" alt="Tum Babi" class="menu-img">
                 <div class="menu-info"><h3>Tum Babi</h3></div>
             </div>
-            <div class="menu-card">
+            <div class="menu-card animate-on-scroll">
                 <img src="PesanTlengis.png" alt="Pesan Tlengis" class="menu-img">
                 <div class="menu-info"><h3>Pesan Tlengis</h3></div>
             </div>
-            <div class="menu-card">
+            <div class="menu-card animate-on-scroll">
                 <img src="KuahBalung.png" alt="Kuah Balung" class="menu-img">
                 <div class="menu-info"><h3>Kuah Balung</h3></div>
             </div>
-            <div class="menu-card">
+            <div class="menu-card animate-on-scroll">
                 <img src="BabiKecap.png" alt="Babi Kecap" class="menu-img">
                 <div class="menu-info"><h3>Babi Kecap</h3></div>
             </div>
-            <div class="menu-card">
+            <div class="menu-card animate-on-scroll">
                 <img src="BalahBabi.png" alt="Balah Babi" class="menu-img">
                 <div class="menu-info"><h3>Balah Babi</h3></div>
             </div>
         </div>
     </section>
 
-    <section class="map-section">
+    <section class="map-section animate-on-scroll">
         <h2 class="section-title">Lokasi Warung BJM</h2>
         <p>Temukan kami di Badung Jaya Mesari dengan petunjuk arah yang lebih jelas.</p>
         <div class="map-wrapper">
@@ -448,15 +529,15 @@
         <a href="https://maps.app.goo.gl/krfa1wDC2BTf5ESx9" target="_blank" class="btn-pesan">Buka di Google Maps</a>
     </section>
 
-    <section class="social-section">
+    <section class="social-section animate-on-scroll">
         <h2 class="section-title">Ikuti Kami</h2>
         <div class="social-grid">
-            <a href="https://www.tiktok.com/@warung.bjm?_r=1&_t=ZS-97fHkVfAfP2" target="_blank" class="social-card" aria-label="TikTok Warung BJM">
+            <a href="https://www.tiktok.com/@warung.bjm?_r=1&_t=ZS-97fHkVfAfP2" target="_blank" class="social-card animate-on-scroll" aria-label="TikTok Warung BJM">
                 <i class="fa-brands fa-tiktok"></i>
             </a>
         </div>
 
-        <div class="coming-soon-box">
+        <div class="coming-soon-box animate-on-scroll">
             <div class="blurred-content">
                 <h3>Konten Viral Menanti</h3>
                 <p>Siap menampilkan momen kuliner, promo, dan aktivitas Warung BJM yang seru.</p>
@@ -478,7 +559,7 @@
     </section>
 
     <!-- Footer & Contact -->
-    <footer>
+    <footer class="animate-on-scroll">
         <div class="footer-content">
             <h3>Warung Sate BJM (Badung Jaya Mesari)</h3>
             <p>Pesan langsung dan nikmati kelezatannya sekarang juga via WhatsApp:</p>
@@ -489,5 +570,27 @@
         </div>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const scrollItems = document.querySelectorAll('.animate-on-scroll');
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const revealOnScroll = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            };
+
+            const observer = new IntersectionObserver(revealOnScroll, observerOptions);
+            scrollItems.forEach(item => observer.observe(item));
+        });
+    </script>
 </body>
 </html>
