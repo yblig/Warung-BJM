@@ -82,6 +82,21 @@
             padding: 20px;
         }
 
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 179, 0, 0.2);
+            color: var(--gold-bali);
+            border: 1px solid rgba(255, 179, 0, 0.4);
+            padding: 7px 14px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            backdrop-filter: blur(6px);
+        }
+
         .hero h2 {
             font-size: 42px;
             color: var(--gold-bali);
@@ -428,8 +443,130 @@
 
         /* Responsive Breakpoints */
         @media (max-width: 768px) {
-            .hero h2 { font-size: 32px; }
-            .hero p { font-size: 15px; }
+            header {
+                padding: 12px 4%;
+            }
+
+            .logo-img {
+                width: 48px;
+                height: 48px;
+            }
+
+            .logo-text h1 {
+                font-size: 18px;
+            }
+
+            .logo-text p {
+                font-size: 10px;
+            }
+
+            .hero {
+                height: auto;
+                min-height: 72vh;
+                padding: 40px 18px 48px;
+                justify-content: flex-end;
+                gap: 12px;
+                border-radius: 0 0 28px 28px;
+            }
+
+            .hero h2 {
+                font-size: 28px;
+                line-height: 1.2;
+                margin-bottom: 10px;
+            }
+
+            .hero p {
+                font-size: 15px;
+                margin-bottom: 16px;
+            }
+
+            .btn-pesan {
+                width: 100%;
+                max-width: 280px;
+                text-align: center;
+                padding: 13px 20px;
+            }
+
+            .menu-section,
+            .map-section,
+            .social-section,
+            .flyer-section {
+                padding: 42px 4% 36px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .menu-container {
+                grid-template-columns: 1fr;
+                gap: 16px;
+                margin-top: 24px;
+            }
+
+            .menu-card {
+                border-radius: 16px;
+                box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+            }
+
+            .menu-img {
+                height: 180px;
+            }
+
+            .menu-info {
+                padding: 16px;
+            }
+
+            .menu-info h3 {
+                font-size: 18px;
+            }
+
+            .map-wrapper {
+                margin: 20px auto 16px;
+                border-radius: 18px;
+            }
+
+            .map-wrapper iframe {
+                height: 280px;
+            }
+
+            .social-grid {
+                gap: 14px;
+                margin-top: 18px;
+            }
+
+            .social-card {
+                width: 74px;
+                height: 74px;
+                font-size: 30px;
+            }
+
+            .coming-soon-box {
+                margin-top: 20px;
+                padding: 22px 18px;
+                border-radius: 18px;
+            }
+
+            .flyer-section {
+                gap: 24px;
+            }
+
+            .flyer-img {
+                width: 100%;
+                max-width: 320px;
+            }
+
+            .flyer-text h3 {
+                font-size: 22px;
+            }
+
+            footer {
+                padding: 28px 4% 18px;
+            }
+
+            .wa-link {
+                font-size: 18px;
+            }
         }
     </style>
 </head>
@@ -450,6 +587,7 @@
 
     <!-- Hero Banner -->
     <section class="hero animated-background">
+        <div class="hero-badge">Kuliner Bali Populer</div>
         <h2>Sate Karangasem & Kuliner Bali Lezat</h2>
         <p>Nikmati hidangan sate legendaris dengan bumbu otentik yang bikin ketagihan. Melayani pemesanan nasi bungkus dan nasi kotak!</p>
         <a href="https://wa.me/6281947852999" target="_blank" class="btn-pesan">Pesan Lewat WhatsApp</a>
